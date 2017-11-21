@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Rotating Triangle</title>
+</head>
+
+<body onload="main()">
+	<canvas id="webgl" width="400" height="400">
+		Please use a browser that supports "canvas"
+	</canvas>
+
+	<script src="../lib/webgl-utils.js"></script>
+	<script src="../lib/webgl-debug.js"></script>
+	<script src="../lib/cuon-utils.js"></script>
+	<script src="../lib/cuon-matrix.js"></script>
+	<script src="RotatingTriangle.js"></script>
+
+	<h4>Изменение скорости
+		<p>
+			<button type="button" value="Увеличение" onclick="ANGLE_STEP +=25">Прибавить скорость</button>
+			<button type="button" value="Уменьшение" onclick="ANGLE_STEP -=25">Убавить скорость</button>
+		</p>
+	</h4>
+
+	<h4>Перемещение по оси OX
+		<p>
+			<button type="button" value="Увеличение" onclick="Tx += 0.25">Переместить на 0,25 по OX </button>
+			<button type="button" value="Увеличение" onclick="Tx -= 0.25">Переместить на -0,25 по OX </button>
+		</p>
+	</h4>
+
+	<h4>Масштабирование по оси OX
+		<p>
+			<button type="button" value="Увеличение" onclick="Sx += 0.25">Увеличить размер на 0,5 по OX </button>
+			<button type="button" value="Увеличение" onclick="Sx -= 0.25">Уменьшить размер на 0,5 по OX </button>
+		</p>
+	</h4>
+
+</body>
+
+</html>
