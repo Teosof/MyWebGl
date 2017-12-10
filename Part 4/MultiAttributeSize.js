@@ -83,7 +83,7 @@ function initVertexBuffers(gl) {
 	}
 
 	gl.vertexAttribPointer(a_Position, 2, gl.FLOAT, false, 0, 0); // <-(4)
-	gl.enableVertexAttribArray(a_Position);// <-(5)
+	gl.enableVertexAttribArray(a_Position); // <-(5)
 
 	// Записать размеры точек в буферный объект и разрешить присваивание
 	gl.bindBuffer(gl.ARRAY_BUFFER, sizeBuffer); // <-(2')

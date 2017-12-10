@@ -1,6 +1,6 @@
 //MultiAttributeSize_Interleaved.js
 /**
- * Перемежение (interleaving) - группировка координат и размеров
+ * @description Перемежение (interleaving) - группировка координат и размеров
  */
 
 // Вершинный шейдер
@@ -56,7 +56,7 @@ function initVertexBuffers(gl) {
 	var verticesSizes = new Float32Array([
 		// Координаты и размеры точек
 		0.0, 0.5, 10.0, // Первая точка
-		- 0.5, -0.5, 20.0, // Вторая точка
+		-0.5, -0.5, 20.0, // Вторая точка
 		0.5, -0.5, 30.0 // Третья точка
 	]);
 	var n = 3;
@@ -71,7 +71,9 @@ function initVertexBuffers(gl) {
 	// Записать координаты вершин в буферный объект и разрешить присваивание
 	gl.bindBuffer(gl.ARRAY_BUFFER, vertexSizeBuffer);
 	gl.bufferData(gl.ARRAY_BUFFER, verticesSizes, gl.STATIC_DRAW);
-
+	/**
+	 * @param FSIZE - размер одного элемента массива verticeSizes
+	 */
 	var FSIZE = verticesSizes.BYTES_PER_ELEMENT;
 	// Получить ссылку на a_Position, выделить буфер и разрешить его
 	var a_Position = gl.getAttribLocation(gl.program, 'a_Position');
@@ -81,6 +83,15 @@ function initVertexBuffers(gl) {
 	}
 
 	// Сохранить ссылку на буферный объект в переменной a_Position
+	/**
+	 * @method vertexAttribPoiner
+	 * @param location определяет переменную-атрибут, которой будет выполнено присваивание
+	 * @param size определяет число компонентов на вершину в буферном объекте (допустимые значения от 1 до 4)
+	 * @param type определяет формат данных
+	 * @param normalized либо true, либо false. Указаывает на необходимость нормализации невещественных данных в диапазоне [0, 1] или [-1, 1]
+	 * @param stride определяет длину шага (в байтах) для извлечения информации об одной вершине, то есть, число байтов между разными элементами данных
+	 * @param offset определяет смещение (в байтах) от начала буферного объекта, где хранятся данные для вершин. Если данные хранятся, начиная с самого начала буфера, в этом параметре следует передать значение 0.
+	 */
 	gl.vertexAttribPointer(a_Position, 2, gl.FLOAT, false, FSIZE * 3, 0);
 	// Разрешить присваивание переменной a_Position
 	gl.enableVertexAttribArray(a_Position);
